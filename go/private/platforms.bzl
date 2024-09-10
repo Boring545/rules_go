@@ -33,6 +33,7 @@ BAZEL_GOARCH_CONSTRAINTS = {
     "ppc64": "@platforms//cpu:ppc",
     "ppc64le": "@platforms//cpu:ppc",
     "s390x": "@platforms//cpu:s390x",
+    "riscv64": "@platforms//cpu:riscv64",
 }
 
 GOOS_GOARCH = (
