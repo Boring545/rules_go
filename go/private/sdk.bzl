@@ -429,7 +429,7 @@ def _detect_sdk_version(ctx, goroot):
         version = ctx.read(version_file_path)[2:]
         if ctx.attr.version and ctx.attr.version != version:
             fail("SDK is version %s, but version %s was expected" % (version, ctx.attr.version))
-        return version
+        return version.strip()
 
     # The top-level VERSION file does not exist in all Go SDK distributions, e.g. those shipped by Debian or Fedora.
     # Falling back to running "go version"
@@ -457,7 +457,7 @@ def _detect_sdk_version(ctx, goroot):
         fail("Could not parse SDK version from '%s version' output: %s" % (go_binary_path, result.stdout))
     if ctx.attr.version and ctx.attr.version != version:
         fail("SDK is version %s, but version %s was expected" % (version, ctx.attr.version))
-    return version
+    return version.strip()
 
 def _parse_versions_json(data):
     """Parses version metadata returned by go.dev.
